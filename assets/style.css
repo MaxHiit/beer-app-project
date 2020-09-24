@@ -1,0 +1,259 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Old+Standard+TT&display=swap");
+
+/* Custom varaible */
+:root {
+   --off-white: #f2f2f2;
+   --black: rgba(0, 0, 16, .8);
+   --red: #CB4F4F;
+   --blue: #334967;
+   --orange: #ffb144;
+   --green: #2aec6b;
+   --disabled: rgba(0, 0, 16, .3);
+   --shadow: 0 0.5rem 1rem rgba(0, 0, 16, 0.19),
+      0 0.3rem 0.3rem rgba(0, 0, 16, 0.23);
+}
+
+/* General */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+html {
+   font-size: 16px;
+}
+
+body {
+   background: var(--off-white);
+   font-family: "Lato", sans-serif;
+   color: var(--black);
+}
+
+
+
+h1 {
+   font-weight: bold;
+   font-family: "Old Standars TT", serif;
+}
+
+/* Layout */
+header {
+   padding: 1rem 2rem;
+   background: var(--orange);
+   color: var(--black);
+   text-align: center;
+}
+
+.container {
+   padding: 1rem 2rem;
+}
+
+/* Filters */
+.filters {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+   gap: 1rem;
+   margin-bottom: 1rem;
+}
+
+.card {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   /* background: #fff; */
+   /* box-shadow: var(--shadow); */
+   /* border-radius: .5rem; */
+}
+
+.filter-card {
+   padding: .8rem;
+}
+
+.filter-container {
+   padding: .4rem .8rem;
+   width: 90%;
+   display: flex;
+   flex-direction: column;
+}
+
+.filter-text {
+   color: var(--black);
+   font-size: 1.3rem;
+   padding: .3rem;
+   align-self: flex-start;
+   justify-self: flex-start;
+}
+
+.filter {
+   background: var(--orange);
+   padding: .4rem .4rem .1rem .4rem;
+   border-radius: .4rem;
+   box-shadow: var(--shadow);
+   border: 2px solid var(--black);
+}
+
+.filter-form {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+input[type=radio] {
+   position: absolute;
+   opacity: 0;
+}
+
+input+span,
+input+svg {
+   cursor: pointer;
+   transition: all .3s ease;
+}
+
+.filter-all+span {
+   font-size: 2rem;
+   padding: .5rem 1rem;
+   color: var(--black);
+}
+
+.filter-all:hover,
+.filter-all:checked+span,
+.filter-all:focus+span {
+   color: var(--off-white);
+}
+
+.beer:hover,
+.beer:checked+svg,
+.beer:focus+svg {
+   fill: var(--orange);
+}
+
+.hops:hover,
+.hops:checked+svg,
+.hops:focus+svg {
+   fill: var(--green);
+}
+
+
+svg {
+   fill: var(--black);
+   height: 2rem;
+   width: 2rem;
+   margin: .5rem;
+}
+
+/* page button */
+.page-filter {
+   display: flex;
+   justify-content: center;
+}
+
+.page-btn {
+   border: none;
+   background: transparent;
+   outline: none;
+   font-size: 2rem;
+   padding: 0 .8rem;
+   color: var(--off-white);
+   cursor: pointer;
+   transition: color .3s ease;
+}
+
+.page-btn:hover {
+   color: var(--red);
+}
+
+.page-btn:disabled {
+   cursor: default;
+   color: var(--disabled);
+}
+
+/* Beer card */
+.beers {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+   gap: 5rem;
+}
+
+.beer-wrapper {
+   justify-content: center;
+   align-items: flex-end;
+   position: relative;
+   box-shadow: var(--shadow);
+   border-radius: 1rem;
+}
+
+.beers .beer {
+   display: grid;
+   grid-auto-columns: 1fr;
+   align-items: end;
+   padding: 2rem;
+   text-align: center;
+   width: 100%;
+}
+
+.beer .beer__img {
+   margin: auto;
+   height: 20rem;
+   padding: 0 0 1rem 0;
+}
+
+
+.beer .beer__info {
+   display: flex;
+   justify-content: space-between;
+   padding: 1rem 0 0 0;
+}
+
+.beer__content {
+   position: absolute;
+   top: 0;
+   left: 0;
+   padding: 1.5rem;
+   /* width: calc(100% - (1.5rem *2));
+   height: calc(100% - (1.5rem *2)); */
+   width: 100%;
+   height: 100%;
+   border-radius: 1rem;
+   background: var(--orange);
+   color: var(--black);
+   overflow: auto;
+   cursor: pointer;
+   opacity: 0;
+   transition: opacity .8s ease;
+}
+
+.beer__content:hover {
+   opacity: 0.95;
+}
+
+.beer__name {
+   margin: 0 auto .5rem auto;
+   font-family: "Old Standars TT", serif;
+   font-size: 2.4rem;
+   line-height: 1.07;
+   letter-spacing: 0.015;
+   font-weight: 900;
+}
+
+.beer__tagline {
+   padding-bottom: .5rem;
+   font-family: "Old Standars TT", serif;
+   font-style: italic;
+   border-bottom: 2px solid var(--off-white);
+   font-weight: 600;
+}
+
+.beer__description {
+   margin: 1rem 0;
+   font-size: 1.1rem;
+   line-height: 1.3rem;
+}
+
+.beer__food-pairing {
+   font-style: italic;
+   font-size: .9rem;
+   line-height: 1.3em;
+   padding-bottom: 1rem;
+}
